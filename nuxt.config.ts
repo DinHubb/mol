@@ -1,15 +1,30 @@
+// Для GitHub Pages сайт лежит в подпапке (/mol/), базовый путь передаётся из CI
+const baseURL = process.env.NUXT_APP_BASE_URL || "/";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
   modules: ["@nuxt/eslint", "@nuxt/image", "@nuxt/ui", "@nuxtjs/i18n"],
+
+  // Корень сайта нужен на статическом хостинге, иначе / отдаёт 404.
+  // При strategy: "prefix" i18n добавляет / в prerender.ignore, снимаем это здесь.
+  nitro: { prerender: { routes: ["/"] } },
+  hooks: {
+    "nitro:build:before"(nitro) {
+      nitro.options.prerender.ignore = (nitro.options.prerender.ignore ?? []).filter(
+        (rule) => !(rule instanceof RegExp && rule.source === "^\\/$"),
+      );
+    },
+  },
   css: ["~/assets/css/main.css"],
 
   app: {
+    baseURL,
     head: {
       htmlAttrs: { lang: "en" },
-      link: [{ rel: "icon", href: "/favicon.ico" }],
+      link: [{ rel: "icon", href: `${baseURL}favicon.ico` }],
     },
   },
 
