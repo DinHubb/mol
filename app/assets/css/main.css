@@ -2,8 +2,65 @@
 @import "@nuxt/ui";
 
 @theme static {
-  --font-sans: "Public Sans", sans-serif;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand: terracotta ("clay") */
+  --color-clay-50: #fdf5f1;
+  --color-clay-100: #fae8df;
+  --color-clay-200: #f4cdbb;
+  --color-clay-300: #ebab8e;
+  --color-clay-400: #de8560;
+  --color-clay-500: #d06a42;
+  --color-clay-600: #c05a33;
+  --color-clay-700: #9e4629;
+  --color-clay-800: #813b26;
+  --color-clay-900: #6a3323;
+  --color-clay-950: #391811;
+
+  /* Accent: sand */
+  --color-sand-50: #fcf8ef;
+  --color-sand-100: #f8efd8;
+  --color-sand-200: #f0dcae;
+  --color-sand-300: #e5c27b;
+  --color-sand-400: #daa84e;
+  --color-sand-500: #cf9236;
+  --color-sand-600: #b7762c;
+  --color-sand-700: #985a27;
+  --color-sand-800: #7c4926;
+  --color-sand-900: #673d23;
+  --color-sand-950: #391e0f;
+}
+
+/* Chart tokens — validated for CVD separation in both modes (dataviz checks) */
+:root {
+  --chart-capital: #c05a33;
+  --chart-profit: #00897c;
+  --chart-surface: #fcfcfb;
+  --chart-grid: rgb(0 0 0 / 0.08);
+}
+
+.dark {
+  --chart-capital: #d2724b;
+  --chart-profit: #22a695;
+  --chart-surface: #1a1a19;
+  --chart-grid: rgb(255 255 255 / 0.1);
 }
 
 @layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+/* Soft earth backdrop used by the hero and CTA bands */
+.band-earth {
+  background-image:
+    radial-gradient(60% 80% at 15% 0%, var(--ui-color-primary-100) 0%, transparent 60%),
+    radial-gradient(50% 70% at 90% 10%, var(--ui-color-secondary-100) 0%, transparent 55%);
+}
+
+.dark .band-earth {
+  background-image:
+    radial-gradient(60% 80% at 15% 0%, color-mix(in oklab, var(--ui-color-primary-900) 55%, transparent) 0%, transparent 60%),
+    radial-gradient(50% 70% at 90% 10%, color-mix(in oklab, var(--ui-color-secondary-900) 45%, transparent) 0%, transparent 55%);
 }

@@ -6,11 +6,18 @@ export default defineNuxtConfig({
   modules: ["@nuxt/eslint", "@nuxt/image", "@nuxt/ui", "@nuxtjs/i18n"],
   css: ["~/assets/css/main.css"],
 
+  app: {
+    head: {
+      htmlAttrs: { lang: "en" },
+      link: [{ rel: "icon", href: "/favicon.ico" }],
+    },
+  },
+
   i18n: {
     locales: [
-      { code: "en", name: "English", language: "en-US" },
-      { code: "ru", name: "Russia", language: "ru-RU" },
-      { code: "tg", name: "Tajik", language: "tg-TJ" },
+      { code: "en", name: "English", language: "en-US", file: "en.json" },
+      { code: "ru", name: "Русский", language: "ru-RU", file: "ru.json" },
+      { code: "tg", name: "Тоҷикӣ", language: "tg-TJ", file: "tg.json" },
     ],
     detectBrowserLanguage: {
       useCookie: true,

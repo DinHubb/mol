@@ -4,6 +4,309 @@
     "error": {
       "title": "Page not found",
       "description": "We are sorry but this page could not be found."
+    },
+    "backHome": "Back home"
+  },
+  "brand": {
+    "name": "MOL",
+    "tagline": "Livestock investment capital"
+  },
+  "nav": {
+    "programs": "Programs",
+    "calculator": "Simulator",
+    "how": "How it works",
+    "transparency": "Oversight",
+    "faq": "FAQ",
+    "cta": "Request access",
+    "language": "Language",
+    "toggleTheme": "Switch theme"
+  },
+  "hero": {
+    "badge": "Mudarabah · real asset · Central Asia",
+    "title": "Livestock as an investable asset — tracked head by head",
+    "subtitle": "MOL connects investors with vetted fattening farms in Tajikistan and the wider region. You fund a specific herd, it is assigned to you by contract, and the proceeds of the sale are shared under a mudarabah agreement.",
+    "primary": "Run the numbers",
+    "secondary": "See the cycle",
+    "note": "Returns are not guaranteed. The risks and fees are spelled out below.",
+    "stats": {
+      "cycleLabel": "Cycle length",
+      "cycleValue": "6–9 months",
+      "shareLabel": "Investor profit share",
+      "shareValue": "60%",
+      "trackLabel": "Herd tracking",
+      "trackValue": "Ear tag + photo log"
+    },
+    "pills": {
+      "sharia": "Shari'a-aligned",
+      "asset": "Backed by a real asset",
+      "audit": "Independent headcount",
+      "region": "Tajikistan & Central Asia"
+    },
+    "demo": {
+      "batch": "Batch",
+      "cycleTag": "Cycle 4/9",
+      "progress": "Cycle progress",
+      "gain": "+{n} kg",
+      "location": "TJ-04 · Хатлон"
     }
+  },
+  "programs": {
+    "headline": "Three programs",
+    "title": "Pick the herd that fits your horizon",
+    "description": "The first two programs are fattening: you own the animals while they grow. The third is a short meat trading cycle — buy a finished animal, slaughter, sell.",
+    "labels": {
+      "cycle": "Cycle",
+      "entry": "Entry per head",
+      "minLot": "Minimum lot",
+      "expected": "Indicative, annualised",
+      "select": "Model this program",
+      "popular": "Most chosen",
+      "head": "head",
+      "months": "mo."
+    },
+    "items": {
+      "cattle": {
+        "name": "Cattle fattening",
+        "subtitle": "Longer cycle, larger ticket",
+        "description": "Classic beef fattening at a partner feedlot. More capital per head, fewer operations per year, the most straightforward exit.",
+        "p1": "9-month cycle, sold in batches",
+        "p2": "Herd insured for the full term",
+        "p3": "Monthly photo report with weight gain"
+      },
+      "sheep": {
+        "name": "Sheep & lambs",
+        "subtitle": "Short cycle, low threshold",
+        "description": "Grazing and finishing flocks. Faster turnover, easy to start small and to exit at the next settlement.",
+        "p1": "6-month cycle",
+        "p2": "Entry from a small lot",
+        "p3": "Seasonal holiday demand supports sales"
+      },
+      "meat": {
+        "name": "Meat trading",
+        "subtitle": "Short trading cycle",
+        "description": "Buying a finished animal, halal slaughter and wholesale meat sales. There is no weight to grow — the result rests on the purchase-to-sale spread.",
+        "p1": "2-month cycle — up to 6 turns a year",
+        "p2": "Slaughter and cold chain handled by the partner",
+        "p3": "Settlement against invoices and carcass weight"
+      }
+    }
+  },
+  "calc": {
+    "headline": "Simulator",
+    "title": "Model your own scenario",
+    "description": "Change the program, the herd size and the horizon — the model recalculates cycles, fees and the resulting portfolio value.",
+    "program": "Program",
+    "units": "Herd size",
+    "unitsHint": "{min} to {max} head",
+    "horizon": "Horizon",
+    "reinvest": "Reinvest the profit",
+    "reinvestOn": "Each cycle's profit buys more animals — the portfolio compounds.",
+    "reinvestOff": "Profit is paid out after every settlement and the principal stays flat.",
+    "yearsShort": "{n} yr",
+    "monthsShort": "{n} mo.",
+    "results": {
+      "entry": "Entry amount",
+      "entryHint": "{units} head × {price} (animal {cost} + fee {fee})",
+      "final": "Portfolio value",
+      "finalHint": "after {years}",
+      "profit": "Profit",
+      "roi": "ROI for the period",
+      "annual": "Annualised",
+      "fees": "Platform fees",
+      "cycles": "Completed cycles",
+      "heads": "Head at the end",
+      "cta": "Request access"
+    },
+    "chart": {
+      "title": "Portfolio growth by cycle",
+      "capital": "Invested capital",
+      "profit": "Accumulated profit",
+      "cycle": "Cycle {n}",
+      "month": "Month {n}",
+      "total": "Portfolio",
+      "showTable": "Show as table",
+      "hideTable": "Hide table",
+      "tableCaption": "Portfolio value at the end of each cycle",
+      "start": "Start",
+      "cycleHeader": "Cycle"
+    },
+    "disclaimer": "The model uses average fattening margins, meat trading spreads and provisional program parameters. It is a simulation, not an offer or a promise of return: the actual outcome depends on meat prices, mortality, exchange rates and sale timing."
+  },
+  "lifecycle": {
+    "headline": "Lifecycle",
+    "title": "What happens to your money, step by step",
+    "description": "Five stages from application to settlement. At each one the investor gets a document or a report confirming the state of the asset.",
+    "steps": {
+      "s1": {
+        "title": "Application & contract",
+        "text": "You choose a program and a size, pass identity checks and sign a mudarabah contract with a fixed profit share."
+      },
+      "s2": {
+        "title": "Purchase & tagging",
+        "text": "The farm buys the herd against your contract. Every animal gets an ear tag, a veterinary passport and a record in your dashboard."
+      },
+      "s3": {
+        "title": "Fattening & monitoring",
+        "text": "Feeding and veterinary care are run by the partner farm. You receive a monthly report: weight gain, herd condition, photos and headcount data."
+      },
+      "s4": {
+        "title": "Halal sale",
+        "text": "The herd is sold through a certified abattoir or by live weight to a wholesale buyer. Price and weight are recorded in an act filed to your dashboard."
+      },
+      "s5": {
+        "title": "Settlement & decision",
+        "text": "Profit is split 60/40 in your favour and the principal returns. You withdraw or start the next cycle in one click."
+      }
+    }
+  },
+  "transparency": {
+    "headline": "Oversight",
+    "title": "How you know the asset is really there",
+    "description": "Livestock investing lives or dies by record keeping. Ours is built so that every claim can be checked against a document.",
+    "items": {
+      "tag": {
+        "title": "Every head identified",
+        "text": "A uniquely numbered ear tag, a veterinary passport and a link between that number and your contract."
+      },
+      "vet": {
+        "title": "Veterinary control",
+        "text": "Scheduled examinations, vaccination and quarantine for new animals under the farm's protocol."
+      },
+      "insurance": {
+        "title": "Herd insurance",
+        "text": "Mortality and accidents are covered by a policy; the terms and the deductible are stated in the contract."
+      },
+      "reports": {
+        "title": "Reports in your dashboard",
+        "text": "Monthly weight gain, photo evidence, cycle costs and sale documents in one place."
+      },
+      "audit": {
+        "title": "Independent headcount",
+        "text": "An external contractor recounts the herd and files a report available to every investor in the program."
+      },
+      "custody": {
+        "title": "Segregated funds",
+        "text": "Investor money is accounted for separately from the platform's operating accounts."
+      }
+    }
+  },
+  "sharia": {
+    "headline": "Islamic finance structure",
+    "title": "Why this is mudarabah, not a loan",
+    "description": "The investor provides capital, the farm provides labour and expertise. Profit is shared in a pre-agreed ratio and market losses fall on the capital. There is no fixed interest rate — that is the point.",
+    "points": {
+      "mudaraba": {
+        "title": "Mudarabah contract",
+        "text": "The 60/40 profit split is fixed in the contract before the cycle starts, rather than accruing as a percentage on the amount invested."
+      },
+      "riba": {
+        "title": "No riba, no guaranteed yield",
+        "text": "We do not promise a rate. If a cycle loses money, the investor shares that outcome — otherwise it would be an interest-bearing loan."
+      },
+      "asset": {
+        "title": "A real asset",
+        "text": "Behind every contract stands a living animal with a tag number, not a debt instrument or a derivative."
+      },
+      "halal": {
+        "title": "Halal supply chain",
+        "text": "Feed, husbandry and slaughter follow the rules; sales go through certified facilities."
+      },
+      "board": {
+        "title": "Shari'a supervision",
+        "text": "Contracts and processes are reviewed by an appointed Shari'a advisor and the opinion is published."
+      }
+    },
+    "note": "The Shari'a board opinion will be published before funds are accepted."
+  },
+  "risks": {
+    "headline": "Risks, stated plainly",
+    "title": "What can go wrong",
+    "description": "This is an investment in a living asset, not a deposit. These are the risks we refuse to bury in a footnote.",
+    "items": {
+      "market": {
+        "title": "Meat prices",
+        "text": "Seasonal swings and imports can cut a cycle's revenue, in a bad case to a loss."
+      },
+      "bio": {
+        "title": "Mortality & disease",
+        "text": "Insurance does not cover every case; the deductible and exclusions are in the contract."
+      },
+      "liquidity": {
+        "title": "Liquidity",
+        "text": "You exit at a settlement, not on any given day. Leaving mid-cycle requires someone to buy out your share."
+      },
+      "fx": {
+        "title": "Currency risk",
+        "text": "Revenue is earned in local currency; converting to dollars can change the outcome."
+      },
+      "ops": {
+        "title": "Operational risk",
+        "text": "Fattening quality depends on the partner farm. We vet partners but cannot rule out mistakes."
+      }
+    }
+  },
+  "faq": {
+    "headline": "FAQ",
+    "title": "What investors ask most",
+    "items": {
+      "q1": {
+        "q": "Who owns the animals?",
+        "a": "The herd is assigned to the investor by contract, listing the tag numbers. The farm acts as manager (mudarib) and cannot dispose of the animals outside the contract terms."
+      },
+      "q2": {
+        "q": "What if an animal dies?",
+        "a": "The case is recorded in an act and covered by the insurance policy. Any uncovered part reduces the cycle's result — that is the market risk the capital carries."
+      },
+      "q3": {
+        "q": "How is profit calculated?",
+        "a": "Direct cycle costs are deducted from sale revenue and the remainder is split 60/40 in the investor's favour. The platform fee is fixed per head per cycle and does not scale with profit."
+      },
+      "q4": {
+        "q": "When can I take my money out?",
+        "a": "At the settlement after the cycle closes — 6 to 9 months depending on the program. There is no exit penalty, but you cannot leave mid-cycle."
+      },
+      "q5": {
+        "q": "What is the minimum?",
+        "a": "It is set by the program lot: one head of cattle, or the minimum sheep lot. The calculator above shows the exact amounts."
+      },
+      "q6": {
+        "q": "What are the fees?",
+        "a": "One: a fixed charge per head per cycle, included in the entry amount. No hidden deposit, withdrawal or management fees."
+      },
+      "q7": {
+        "q": "How is this different from lending to a farmer?",
+        "a": "There is no fixed interest and there is an identifiable asset. You participate in the outcome rather than earning a rate — otherwise the contract would not be Shari'a-compliant."
+      },
+      "q8": {
+        "q": "Can I see my animals?",
+        "a": "In the dashboard: tag number, monthly weight gain, photos and cycle documents. On request, a visit to the partner site."
+      }
+    }
+  },
+  "cta": {
+    "title": "Want to run the numbers together?",
+    "description": "Leave a request and we will come back with a calculation for the chosen program, a draft contract and the next cycle start dates.",
+    "primary": "Request access",
+    "secondary": "Message on Telegram",
+    "note": "We reply within one business day. A request commits you to nothing."
+  },
+  "footer": {
+    "about": "Investing in live livestock with transparent record keeping and profit shared under a mudarabah agreement.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "links": {
+      "programs": "Programs",
+      "calculator": "Simulator",
+      "how": "How it works",
+      "partners": "For partner farms",
+      "contacts": "Contacts",
+      "careers": "Careers",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "risk": "Risk disclosure"
+    },
+    "disclaimer": "The content of this site is informational and is neither a public offer nor individual investment advice. Livestock investing carries the risk of partial or total loss of the invested capital.",
+    "rights": "All rights reserved."
   }
 }
