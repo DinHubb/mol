@@ -60,35 +60,9 @@
       "minLot": "Minimum lot",
       "expected": "Indicative, annualised",
       "select": "Model this program",
-      "popular": "Most chosen",
+      "mostChosen": "Most chosen",
       "head": "head",
       "months": "mo."
-    },
-    "items": {
-      "cattle": {
-        "name": "Cattle fattening",
-        "subtitle": "Longer cycle, larger ticket",
-        "description": "Classic beef fattening at a partner feedlot. More capital per head, fewer operations per year, the most straightforward exit.",
-        "p1": "9-month cycle, sold in batches",
-        "p2": "Herd insured for the full term",
-        "p3": "Monthly photo report with weight gain"
-      },
-      "sheep": {
-        "name": "Sheep & lambs",
-        "subtitle": "Short cycle, low threshold",
-        "description": "Grazing and finishing flocks. Faster turnover, easy to start small and to exit at the next settlement.",
-        "p1": "6-month cycle",
-        "p2": "Entry from a small lot",
-        "p3": "Seasonal holiday demand supports sales"
-      },
-      "meat": {
-        "name": "Meat trading",
-        "subtitle": "Short trading cycle",
-        "description": "Buying a finished animal, halal slaughter and wholesale meat sales. There is no weight to grow — the result rests on the purchase-to-sale spread.",
-        "p1": "2-month cycle — up to 6 turns a year",
-        "p2": "Slaughter and cold chain handled by the partner",
-        "p3": "Settlement against invoices and carcass weight"
-      }
     }
   },
   "calc": {
@@ -162,33 +136,7 @@
   "transparency": {
     "headline": "Oversight",
     "title": "How you know the asset is really there",
-    "description": "Livestock investing lives or dies by record keeping. Ours is built so that every claim can be checked against a document.",
-    "items": {
-      "tag": {
-        "title": "Every head identified",
-        "text": "A uniquely numbered ear tag, a veterinary passport and a link between that number and your contract."
-      },
-      "vet": {
-        "title": "Veterinary control",
-        "text": "Scheduled examinations, vaccination and quarantine for new animals under the farm's protocol."
-      },
-      "insurance": {
-        "title": "Herd insurance",
-        "text": "Mortality and accidents are covered by a policy; the terms and the deductible are stated in the contract."
-      },
-      "reports": {
-        "title": "Reports in your dashboard",
-        "text": "Monthly weight gain, photo evidence, cycle costs and sale documents in one place."
-      },
-      "audit": {
-        "title": "Independent headcount",
-        "text": "An external contractor recounts the herd and files a report available to every investor in the program."
-      },
-      "custody": {
-        "title": "Segregated funds",
-        "text": "Investor money is accounted for separately from the platform's operating accounts."
-      }
-    }
+    "description": "Livestock investing lives or dies by record keeping. Ours is built so that every claim can be checked against a document."
   },
   "sharia": {
     "headline": "Islamic finance structure",

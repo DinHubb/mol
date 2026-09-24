@@ -1,4 +1,9 @@
-import type { CyclePoint, Program, ProgramId, SimulationResult } from "../types";
+import type {
+  CyclePoint,
+  Program,
+  ProgramId,
+  SimulationResult,
+} from "../types";
 
 /**
  * Демонстрационные параметры программ.
@@ -10,6 +15,41 @@ export const CURRENCY = "USD";
 export const PROGRAMS: Record<ProgramId, Program> = {
   cattle: {
     id: "cattle",
+    icon: "i-lucide-beef",
+    link: "#calculator",
+    title: {
+      en: "Cattle fattening",
+      ru: "Бычки на откорме",
+      tg: "Гӯсолаҳои фарбеҳшаванда",
+    },
+    subtitle: {
+      en: "Longer cycle, larger ticket",
+      ru: "Длинный цикл, крупный чек",
+      tg: "Давраи дароз, маблағи калон",
+    },
+    description: {
+      en: "Classic beef fattening at a partner feedlot. More capital per head, fewer operations per year, the most straightforward exit.",
+      ru: "Классический откорм КРС на площадке партнёра. Больше капитала на голову, меньше операций в году, самая понятная реализация.",
+      tg: "Фарбеҳкунии классикии чорвои калон дар майдончаи шарик. Сармояи бештар ба як сар, амалиёти камтар дар як сол ва фурӯши осонтарин.",
+    },
+    points: [
+      {
+        en: "9-month cycle, sold in batches",
+        ru: "Цикл 9 месяцев, реализация партиями",
+        tg: "Давраи 9-моҳа, фурӯш бо дастаҳо",
+      },
+      {
+        en: "Herd insured for the full term",
+        ru: "Страхование поголовья на весь срок",
+        tg: "Суғуртаи рама дар тамоми мӯҳлат",
+      },
+      {
+        en: "Monthly photo report with weight gain",
+        ru: "Ежемесячный фотоотчёт с привесом",
+        tg: "Ҳисоботи моҳонаи аксӣ бо вазнафзоӣ",
+      },
+    ],
+    mostChosen: false,
     cycleMonths: 9,
     unitCost: 1200,
     platformFee: 35,
@@ -22,6 +62,41 @@ export const PROGRAMS: Record<ProgramId, Program> = {
   },
   sheep: {
     id: "sheep",
+    icon: "i-lucide-rabbit",
+    link: "#calculator",
+    title: {
+      en: "Sheep & lambs",
+      ru: "Овцы и ягнята",
+      tg: "Гӯсфанд ва барра",
+    },
+    subtitle: {
+      en: "Short cycle, low threshold",
+      ru: "Короткий цикл, низкий порог",
+      tg: "Давраи кӯтоҳ, вуруди арзон",
+    },
+    description: {
+      en: "Grazing and finishing flocks. Faster turnover, easy to start small and to exit at the next settlement.",
+      ru: "Отара на выпасе и доращивании. Быстрее оборачивается, проще войти небольшой суммой и выйти после ближайшего расчёта.",
+      tg: "Рама дар чаро ва парвариш. Гардиши тезтар, оғози осон бо маблағи хурд ва баромад пас аз ҳисоби наздиктарин.",
+    },
+    points: [
+      {
+        en: "6-month cycle",
+        ru: "Цикл 6 месяцев",
+        tg: "Давраи 6-моҳа",
+      },
+      {
+        en: "Entry from a small lot",
+        ru: "Вход от небольшого лота",
+        tg: "Вуруд аз лоти хурд",
+      },
+      {
+        en: "Seasonal holiday demand supports sales",
+        ru: "Сезонный спрос в праздники повышает сбыт",
+        tg: "Талаботи идона фурӯшро дастгирӣ мекунад",
+      },
+    ],
+    mostChosen: false,
     cycleMonths: 6,
     unitCost: 180,
     platformFee: 4,
@@ -34,6 +109,41 @@ export const PROGRAMS: Record<ProgramId, Program> = {
   },
   meat: {
     id: "meat",
+    icon: "i-lucide-store",
+    link: "#calculator",
+    title: {
+      en: "Meat trading",
+      ru: "Мясо на реализацию",
+      tg: "Гӯшт барои фурӯш",
+    },
+    subtitle: {
+      en: "Short trading cycle",
+      ru: "Короткий торговый цикл",
+      tg: "Давраи кӯтоҳи савдо",
+    },
+    description: {
+      en: "Buying a finished animal, halal slaughter and wholesale meat sales. There is no weight to grow — the result rests on the purchase-to-sale spread.",
+      ru: "Закуп откормленной головы, халяль-забой и оптовая реализация мяса. Привес не растим — результат зависит от разницы закупочной и отпускной цены.",
+      tg: "Хариди чорвои фарбеҳшуда, кушторӣ ва фурӯши яклухти гӯшт. Вазн намепарварем — натиҷа ба фарқи нархи харид ва фурӯш вобаста аст.",
+    },
+    points: [
+      {
+        en: "2-month cycle — up to 6 turns a year",
+        ru: "Цикл 2 месяца — до 6 оборотов в год",
+        tg: "Давраи 2-моҳа — то 6 гардиш дар сол",
+      },
+      {
+        en: "Slaughter and cold chain handled by the partner",
+        ru: "Забой и холодовая цепь на стороне партнёра",
+        tg: "Кушторӣ ва занҷираи сард аз ҷониби шарик",
+      },
+      {
+        en: "Settlement against invoices and carcass weight",
+        ru: "Расчёт по накладным и весу туши",
+        tg: "Ҳисоб аз рӯи ҳуҷҷатҳо ва вазни лоша",
+      },
+    ],
+    mostChosen: true,
     // торговый цикл без откорма: закуп готовой головы, забой, оптовая реализация мяса
     cycleMonths: 2,
     unitCost: 900,
@@ -46,8 +156,6 @@ export const PROGRAMS: Record<ProgramId, Program> = {
     defaultUnits: 8,
   },
 };
-
-export const PROGRAM_IDS = Object.keys(PROGRAMS) as ProgramId[];
 
 /** Чистая прибыль инвестора с одной головы за один цикл, без учёта комиссии */
 export function profitPerUnit(program: Program): number {
@@ -73,7 +181,12 @@ export interface SimulationInput {
  * Тело капитала (`capital`) остаётся постоянным, прибыль накапливается сверху —
  * так сложенный график читается как «сколько своё, сколько заработано».
  */
-export function simulate({ program, units, years, reinvest }: SimulationInput): SimulationResult {
+export function simulate({
+  program,
+  units,
+  years,
+  reinvest,
+}: SimulationInput): SimulationResult {
   const entryCost = program.unitCost + program.platformFee;
   const capital = units * entryCost;
   const cycles = Math.max(1, Math.floor((years * 12) / program.cycleMonths));

@@ -58,10 +58,7 @@ const links = computed<ButtonProps[]>(() => [
     :description="$t('hero.subtitle')"
     :headline="$t('hero.badge')"
     orientation="horizontal"
-    class="band-earth overflow-hidden"
-    :ui="{
-      container: 'relative z-10 lg:py-20',
-    }"
+    class="band-earth"
   >
     <div>
       <div

@@ -1,157 +1,121 @@
 <script setup lang="ts">
-import type { ProgramId } from "#shared/types";
+import type { Program } from "#shared/types";
 
+const { t } = useI18n();
+const { tr } = useLocalized();
 const { currency, percent, number } = useFormat();
-const { programId, selectProgram } = useCalculator();
+const { selectProgram } = useCalculator();
 
-const icons: Record<ProgramId, string> = {
-  cattle: "i-lucide-beef",
-  sheep: "i-lucide-rabbit",
-  meat: "i-lucide-store",
-};
+/** Экономика программы в виде подписей карточки */
+function metrics(program: Program) {
+  const entry = program.unitCost + program.platformFee;
 
-const cards = computed(() =>
-  PROGRAM_IDS.map((id) => {
-    const program = PROGRAMS[id];
-    return {
-      id,
-      icon: icons[id],
-      program,
-      entry: program.unitCost + program.platformFee,
-      minLot: program.minUnits * (program.unitCost + program.platformFee),
-      annual: expectedAnnualReturn(program),
-      popular: id === "meat",
-    };
-  }),
-);
-
-function choose(id: ProgramId) {
-  selectProgram(id);
-  document.getElementById("calculator")?.scrollIntoView({ behavior: "smooth" });
+  return [
+    {
+      label: t("programs.labels.cycle"),
+      value: t("calc.monthsShort", { n: program.cycleMonths }),
+    },
+    {
+      label: t("programs.labels.expected"),
+      value: `≈ ${percent(expectedAnnualReturn(program), 0)}`,
+    },
+    {
+      label: t("programs.labels.entry"),
+      value: currency(entry),
+    },
+    {
+      label: t("programs.labels.minLot"),
+      value: currency(program.minUnits * entry),
+      hint: `/ ${number(program.minUnits)} ${t("programs.labels.head")}`,
+    },
+  ];
 }
 </script>
 
 <template>
-  <section id="programs" class="py-16 sm:py-24">
-    <UContainer>
-      <div class="max-w-3xl">
-        <p class="text-primary text-sm font-semibold tracking-wide uppercase">
-          {{ $t("programs.headline") }}
-        </p>
-        <h2
-          class="text-highlighted mt-3 text-3xl font-bold tracking-tight text-balance sm:text-4xl"
-        >
-          {{ $t("programs.title") }}
-        </h2>
-        <p class="text-muted mt-4 text-base leading-relaxed">
-          {{ $t("programs.description") }}
-        </p>
-      </div>
-
-      <!-- subgrid: блоки карточек выравниваются построчно при любой длине текста -->
-      <div
-        class="mt-12 grid gap-5 lg:grid-cols-3 lg:grid-rows-[repeat(7,auto)]"
+  <UPageSection
+    id="programs"
+    :title="$t('programs.title')"
+    :description="$t('programs.description')"
+    :headline="$t('programs.headline')"
+  >
+    <UPageGrid>
+      <UPageCard
+        v-for="program in PROGRAMS"
+        :key="program.id"
+        :icon="program.icon"
+        :highlight="program.mostChosen"
+        :ui="{
+          leadingIcon: 'size-8',
+          body: 'flex flex-col',
+          leading: 'mb-4',
+        }"
+        :class="program.mostChosen ? 'bg-primary/5' : 'hover:ring-primary/40'"
       >
-        <div
-          v-for="card in cards"
-          :key="card.id"
-          class="ring-default relative flex flex-col rounded-2xl p-6 ring transition lg:row-span-7 lg:grid lg:grid-rows-subgrid"
-          :class="
-            card.id === programId
-              ? 'bg-primary/5 ring-primary ring-2'
-              : 'bg-default hover:ring-primary/40'
-          "
-        >
-          <UBadge
-            v-if="card.popular"
-            :label="$t('programs.labels.popular')"
-            color="secondary"
-            variant="subtle"
-            class="absolute end-6 top-6 rounded-full"
-          />
+        <UBadge
+          v-if="program.mostChosen"
+          :label="$t('programs.labels.mostChosen')"
+          color="secondary"
+          variant="subtle"
+          class="absolute inset-e-6 top-6 rounded-full"
+        />
 
-          <span
-            class="bg-primary/10 text-primary flex size-11 items-center justify-center rounded-xl"
-          >
-            <UIcon :name="card.icon" class="size-6" />
-          </span>
-
-          <h3 class="text-highlighted mt-5 text-xl font-semibold">
-            {{ $t(`programs.items.${card.id}.name`) }}
-          </h3>
-          <p class="text-primary mt-1 text-sm font-medium">
-            {{ $t(`programs.items.${card.id}.subtitle`) }}
-          </p>
-          <p class="text-muted mt-3 text-sm leading-relaxed">
-            {{ $t(`programs.items.${card.id}.description`) }}
-          </p>
+        <template #body>
+          <div class="flex-1">
+            <h3 class="text-highlighted text-xl font-semibold text-pretty">
+              {{ tr(program.title) }}
+            </h3>
+            <p class="text-primary mt-1 text-sm font-medium">
+              {{ tr(program.subtitle) }}
+            </p>
+            <p class="text-muted mt-2 text-sm leading-relaxed">
+              {{ tr(program.description) }}
+            </p>
+          </div>
 
           <dl
-            class="border-default mt-5 grid grid-cols-2 gap-x-4 gap-y-4 border-t pt-5 text-sm"
+            class="border-default mt-4 grid grid-cols-2 gap-4 border-t pt-4 text-sm"
           >
-            <div>
-              <dt class="text-dimmed text-xs">
-                {{ $t("programs.labels.cycle") }}
-              </dt>
+            <div v-for="metric in metrics(program)" :key="metric.label">
+              <dt class="text-dimmed text-xs">{{ metric.label }}</dt>
               <dd class="text-default mt-0.5 font-semibold tabular-nums">
-                {{ $t("calc.monthsShort", { n: card.program.cycleMonths }) }}
-              </dd>
-            </div>
-            <div>
-              <dt class="text-dimmed text-xs">
-                {{ $t("programs.labels.expected") }}
-              </dt>
-              <dd class="text-default mt-0.5 font-semibold tabular-nums">
-                ≈ {{ percent(card.annual, 0) }}
-              </dd>
-            </div>
-            <div>
-              <dt class="text-dimmed text-xs">
-                {{ $t("programs.labels.entry") }}
-              </dt>
-              <dd class="text-default mt-0.5 font-semibold tabular-nums">
-                {{ currency(card.entry) }}
-              </dd>
-            </div>
-            <div>
-              <dt class="text-dimmed text-xs">
-                {{ $t("programs.labels.minLot") }}
-              </dt>
-              <dd class="text-default mt-0.5 font-semibold tabular-nums">
-                {{ currency(card.minLot) }}
-                <span class="text-dimmed font-normal">
-                  / {{ number(card.program.minUnits) }}
-                  {{ $t("programs.labels.head") }}
+                {{ metric.value }}
+                <span v-if="metric.hint" class="text-dimmed font-normal">
+                  {{ metric.hint }}
                 </span>
               </dd>
             </div>
           </dl>
 
-          <ul class="mt-5 space-y-2">
+          <ul class="text-muted mt-8 space-y-2 text-sm">
             <li
-              v-for="point in ['p1', 'p2', 'p3']"
-              :key="point"
-              class="text-muted flex gap-2 text-sm"
+              v-for="point in program.points"
+              :key="point.en"
+              class="flex gap-2"
             >
               <UIcon
                 name="i-lucide-check"
                 class="text-primary mt-0.5 size-4 shrink-0"
               />
-              {{ $t(`programs.items.${card.id}.${point}`) }}
+              {{ tr(point) }}
             </li>
           </ul>
+        </template>
 
+        <template #footer>
           <UButton
-            class="mt-6"
             block
-            :color="card.id === programId ? 'primary' : 'neutral'"
-            :variant="card.id === programId ? 'solid' : 'subtle'"
+            size="xl"
+            :to="program.link"
+            :color="program.mostChosen ? 'primary' : 'neutral'"
+            :variant="program.mostChosen ? 'solid' : 'subtle'"
+            class="mt-4"
             :label="$t('programs.labels.select')"
             trailing-icon="i-lucide-arrow-right"
-            @click="choose(card.id)"
+            @click="selectProgram(program.id)"
           />
-        </div>
-      </div>
-    </UContainer>
-  </section>
+        </template>
+      </UPageCard>
+    </UPageGrid>
+  </UPageSection>
 </template>

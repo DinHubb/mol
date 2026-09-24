@@ -10,7 +10,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
+  <UPage>
     <LandingHero />
     <LandingPrograms />
     <LandingCalculator />
@@ -20,5 +20,5 @@ useSeoMeta({
     <LandingRisks />
     <LandingFaq />
     <LandingCta />
-  </div>
+  </UPage>
 </template>
